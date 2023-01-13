@@ -1,11 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Character } from './Components/Characters'
+import { Episodes } from './Components/Episodes'
+import {
+  Route,
+  Link,
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/about",
+    element: <Episodes/>
+  },
+]);
+
+
+export function RouterController() {
+  return (
+    <React.StrictMode>
+      <RouterProvider router={router}  />
+    </React.StrictMode>
+  )
+}
+
 
 function App() {
-
-
   const [characters, setCharacter] = useState([])   // [ 0 = variable, [ 1 = SetVariable]]
-
   const url = "https://rickandmortyapi.com/api/character"
 
   const fetchConnect = (url) => {
@@ -19,10 +45,10 @@ function App() {
   }
 
   useEffect(() => {
+    console.log('Render')
     fetchConnect(url)
   }, [])
 
-  console.log('Characters', characters)
 
   return (
     <nav>
