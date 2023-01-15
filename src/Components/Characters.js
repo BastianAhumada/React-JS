@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react';
 
 export const Character = ({ characters = [] }) => {
 
-  const [paginationvalue, setPaginationValue] = useState(0)
+  const [paginationvalue, setPaginationValue] = useState(30)
 
-  console.log(paginationvalue)
+
+  useEffect(() =>
+  {}
+  ,[])
   return (
     <div className='container'>
-
       <div className='row'>
         {characters.map((elem, i) => {
           return (
