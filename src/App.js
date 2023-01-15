@@ -1,64 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Character } from './Components/Characters'
+import React from 'react';
 import { Episodes } from './Components/Episodes'
+import { ListCharacter } from './Pages/ListCharacters'
 import {
   Route,
-  Link,
-  createBrowserRouter,
-  RouterProvider
+  Routes,
 } from "react-router-dom";
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/about",
-    element: <Episodes/>
-  },
-]);
-
-
-export function RouterController() {
-  return (
-    <React.StrictMode>
-      <RouterProvider router={router}  />
-    </React.StrictMode>
-  )
-}
-
-
 function App() {
-  const [characters, setCharacter] = useState([])   // [ 0 = variable, [ 1 = SetVariable]]
-  const url = "https://rickandmortyapi.com/api/character"
-
-  const fetchConnect = (url) => {
-    fetch(url, {
-      method: 'GET', headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json())
-      .then(data => setCharacter(data.results))
-      .catch(err => new Error('Failed In Connection API'))
-  }
-
-  useEffect(() => {
-    console.log('Render')
-    fetchConnect(url)
-  }, [])
-
-
   return (
-    <nav>
-      <div className="container">
-        <Character characters={characters} />
-      </div>
-    </nav>
+    <Routes>
+      <Route path="/" element={<div>
+        <a href='/characters'>Characters</a>
+      </div>} />
+      <Route path="/episodes" element={<Episodes />} />
+      <Route path="/characters" element={<ListCharacter />} />
+
+    </Routes>
+
   )
 }
-
-
 
 export default App
