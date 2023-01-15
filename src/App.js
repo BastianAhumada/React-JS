@@ -1,6 +1,7 @@
 import React from 'react';
 import { Episodes } from './Components/Episodes'
 import { ListCharacter } from './Pages/ListCharacters'
+import Home from './Components/Home'
 import {
   Route,
   Routes,
@@ -9,9 +10,7 @@ import {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<div>
-        <a href='/characters'>Characters</a>
-      </div>} />
+      <Route path="/" element={<Home></Home>}/> 
       <Route path="/episodes" element={<Episodes />} />
       <Route path="/characters" element={<ListCharacter />} />
 
