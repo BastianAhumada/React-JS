@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 
-export default async function getCharacter() {
+export default async function getCharacter({page = '3'} = {}) {
 
   
-  const url = "https://rickandmortyapi.com/api/character?page=1"
+  const url = `https://rickandmortyapi.com/api/character?page=${page}`
 
   const arraCharacters = []
 

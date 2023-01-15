@@ -1,28 +1,63 @@
 import Pagination from '@mui/material/Pagination'
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from 'react';
-
 
 export const Character = ({ characters = [] }) => {
 
-  const [paginationvalue, setPaginationValue] = useState(30)
+  console.log(characters)
+  const Cards = <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+      sx={{ height: 140 }}
+      image="/static/images/cards/contemplative-reptile.jpg"
+      title="green iguana"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        Lizard
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
 
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Share</Button>
+      <Button size="small">Learn More</Button>
+    </CardActions>
+  </Card>
 
-  useEffect(() =>
-  {}
-  ,[])
+  // View 
   return (
     <div className='container'>
       <div className='row'>
         {characters.map((elem, i) => {
           return (
-            <div key={i} className="col mb-2">
-              <div className='card'>
-                <h1 className='text-center'>{elem.name}</h1>
-                <img src={elem.image} ></img>
-                <a href='/episodes'> Episodes </a>
-              </div>
+            <Card key={i} sx={{ maxWidth: 345 }}>
+              <CardMedia
+                sx={{ height: 280 }}
+                image={elem.image}
+                title={elem.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {elem.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  status: {elem.status}
+                  <br></br>
+                  species: {elem.species}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Episodios</Button>
+              </CardActions>
+            </Card>
 
-            </div>
+
           )
         })
         }

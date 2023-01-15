@@ -1,26 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { Character } from '../Components/Characters'
 import Pagination from '@mui/material/Pagination'
+import Link from '@mui/material/Link'
+
 import getCharacter from '../Services/getCharacter';
 
 
 function ListCharacter() {
-  
-  const [characters, setCharacters] = useState()
-  
-  useEffect(() => {
-    getCharacter().then(characters => setCharacters(characters.results))
-  }, [])
 
-  console.log('Characters', characters)
+  let count = 0
+  console.log( 'Cs',count)
+  const [characters, setCharacters] = useState()
+
+  useEffect(() => {
+    getCharacter({
+      page: '3'
+    })
+    .then(characters => setCharacters(characters.results))
+  }, [count])
 
 
   if (characters) {
     return (
-      <Character characters={characters}></Character>
+      <div>
+        <Link href="/">Home</Link>
+        <Pagination count={10} onClick={() => {
+          count++
+          console.log(count)
+        }} />
+        <Character characters={characters}></Character>
+
+      </div>
     )
   }
-  
+
 }
 
 export {

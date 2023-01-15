@@ -46,8 +46,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts'],
     alias: {
-      '@utils': path.resolve(__dirname, 'utils'),
-      '@helpers': path.resolve(__dirname, 'helpers')
+      '@Components': path.resolve(__dirname, '/src/Components'),
+      '@Controllers': path.resolve(__dirname, '/src/Controllers')
     }
   }
 }

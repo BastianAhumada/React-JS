@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Character } from '../Components/Characters'
+import { Character } from '@Components/Characters'
 
 
 export async function OnClickButton() {
 
   const [characters, setstate] = useState([])
 
-  const getCharacter = fetch('https://rickandmortyapi.com/api/character', {
+  const getCharacter = fetch(`https://rickandmortyapi.com/api/character?page=${page}`, {
     method: 'GET', headers: {
       'Content-Type': 'application/json'
     }
