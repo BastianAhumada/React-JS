@@ -1,34 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import { Character } from '../Components/Characters'
-import Pagination from '@mui/material/Pagination'
 import Link from '@mui/material/Link'
+
+import { Character } from '../Components/Characters'
+import { Pagination } from '../Components/Pagination'
 
 import getCharacter from '../Services/getCharacter';
 
 
+
+
 function ListCharacter() {
 
-  let count = 0
-  console.log( 'Cs',count)
   const [characters, setCharacters] = useState()
+  const [info, setInfo] = useState({})
 
   useEffect(() => {
-    getCharacter({
-      page: '3'
+    getCharacter()
+      .then(characters => {
+        setCharacters(characters.results)
+        setInfo(characters.info)
+      })
+  }, [])
+
+  const onPrevious = () => {
+    getCharacter(info.prev)
+    .then(characters => {
+      setCharacters(characters.results)
+      setInfo(characters.info)
     })
-    .then(characters => setCharacters(characters.results))
-  }, [count])
+  }
 
-
+  const onNext = () => {
+      getCharacter(info.next)
+      .then(characters => {
+        setCharacters(characters.results)
+        setInfo(characters.info)
+      })
+  }
+  
   if (characters) {
     return (
       <div>
         <Link href="/">Home</Link>
-        <Pagination count={10} onClick={() => {
-          count++
-          console.log(count)
-        }} />
+        <Pagination
+          prev={info.prev}
+          next={info.next}
+          onNext={onNext}
+          onPrevious={onPrevious} />
         <Character characters={characters}></Character>
+        <Pagination></Pagination>
 
       </div>
     )

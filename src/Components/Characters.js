@@ -9,26 +9,8 @@ import React, { useEffect, useState } from 'react';
 
 export const Character = ({ characters = [] }) => {
 
-  console.log(characters)
-  const Cards = <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      sx={{ height: 140 }}
-      image="/static/images/cards/contemplative-reptile.jpg"
-      title="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        Lizard
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
 
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Share</Button>
-      <Button size="small">Learn More</Button>
-    </CardActions>
-  </Card>
+  
 
   // View 
   return (
