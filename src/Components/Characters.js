@@ -34,9 +34,6 @@ export const Character = ({ characters = [] }) => {
                   species: {elem.species}
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small">Episodios</Button>
-              </CardActions>
             </Card>
 
 
