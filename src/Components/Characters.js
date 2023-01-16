@@ -1,17 +1,20 @@
-import Pagination from '@mui/material/Pagination'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from 'react';
 
+import {
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
+
+
 export const Character = ({ characters = [] }) => {
 
-
-  
-
+  console.log(characters)
   // View 
   return (
     <div className='container'>
@@ -32,11 +35,19 @@ export const Character = ({ characters = [] }) => {
                   status: {elem.status}
                   <br></br>
                   species: {elem.species}
+                  <br></br>
+                  episodios: {elem.episode.length}
                 </Typography>
               </CardContent>
+              <CardActions>
+                <Link to='/EpisodesByCharacter'> Episodios </Link>
+                {
+                  elem.episode.map( (e , i) => {
+                    
+                  })
+                }
+              </CardActions>
             </Card>
-
-
           )
         })
         }
@@ -45,4 +56,5 @@ export const Character = ({ characters = [] }) => {
     </div>
   )
 }
+
 
