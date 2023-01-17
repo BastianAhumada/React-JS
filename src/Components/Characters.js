@@ -32,11 +32,11 @@ export const Character = ({ characters = [] }) => {
   
 
 
-
+  console.log('Characters', characters)
   // View 
   return (
     <div className='container'>
-      <div className='row'>
+      <div className='row justify-content-center'>
         {characters.map((elem, i) => {
           return (
             <Card key={i} sx={{ maxWidth: 345 }}>
@@ -55,8 +55,12 @@ export const Character = ({ characters = [] }) => {
                   species: {elem.species}
                   <br></br>
                   episodios: {elem.episode.length}
+                  <br></br>
+                  Location {elem.location.name}
                 </Typography>
               </CardContent>
+              <CardActions>
+              </CardActions>
               <CardActions>
                 {
                   elem.episode.map((e, i) => {

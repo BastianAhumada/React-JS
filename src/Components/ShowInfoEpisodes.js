@@ -10,9 +10,6 @@ export default ({ infoEpisodes }) => {
     infoEpisodes.then(e => setInfoEpisode(e))
   }, [])
 
-  console.log('Info', infoEpisode)
-
-
 
   return (
     <div className="container">
