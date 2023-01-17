@@ -15,12 +15,12 @@ export function Pagination({ prev, next, onPrevious, onNext }) {
     <nav>
       <ul className='pagination justify-content-center'>
         {prev ? (
-          <li className='page-item'><button className='page-link' onClick={handlePrevius}>Anterior</button></li>
+          <li className='page-item'><button className='page-link m-1' onClick={handlePrevius}>Anterior</button></li>
         ) :
           null
         }
         {next ? (
-          <li className='page-item'><button className='page-link' onClick={handleNext}> Siguiente</button></li>
+          <li className='page-item'><button className='page-link m-1' onClick={handleNext}> Siguiente</button></li>
         )
           :
           null

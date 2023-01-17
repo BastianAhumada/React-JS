@@ -13,8 +13,6 @@ import {
 
 
 export const Character = ({ characters = [] }) => {
-
-  console.log(characters)
   // View 
   return (
     <div className='container'>
