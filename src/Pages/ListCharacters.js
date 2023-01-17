@@ -56,6 +56,8 @@ function ListCharacter() {
       })
   }
 
+  console.log('charcater', characters)
+
   if (characters) {
     return (
       <div>

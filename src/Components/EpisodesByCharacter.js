@@ -1,10 +1,15 @@
-export default function EpisodesByCharacter() {
+export default function EpisodesByCharacter({ props }) {
 
-  fetch('')
+  console.log(props)
 
 
-// View
+
+
+  // View
   return (
-    <h1> Episodios de </h1>
+    <div>
+      <h1> Episodios de </h1>
+    </div>
+
   )
 }

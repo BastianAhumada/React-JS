@@ -16,7 +16,7 @@ function App() {
       <Route path="/episodes" element={<Episodes />} />
       <Route path="/characters" element={<ListCharacter />} />
       <Route path="/locations" element={<Location />} />
-      <Route path="/EpisodesByCharacter" element={<EpisodesByCharacter />} />
+      <Route path="/EpisodesByCharacter" element={<EpisodesByCharacter   /> } />
 
     </Routes>
 
