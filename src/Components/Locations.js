@@ -18,13 +18,15 @@ export default function Location({ locationInfo }) {
         <hr></hr>
         <h4 style={{ color: "red" }}> Type: {locations.type}</h4>
         <h4 style={{ color: "red" }}> Ubicacion: {locations.name}</h4>
-        <h4 style={{ color: "red" }}> Dimension: {
+        <h4 style={{ color: "red" }}> 
+        Dimension: {
           locations.dimension === "unknown" ? (
             "Desconocido"
           ) : (
             locations.dimension
           )
-        }</h4>
+        }<span>
+          </span> </h4>
         <hr></hr>
       </div>
 

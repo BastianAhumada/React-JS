@@ -25,18 +25,6 @@ export default function Home() {
         <Card sx={{ maxWidth: 345, margin: 2 }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              <Link to='/locations' size="small">Ubicaciones</Link>
-
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              <br></br>
-            </Typography>
-          </CardContent>
-        </Card>
-
-        <Card sx={{ maxWidth: 345, margin: 2 }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
               <Link to='/episodes' size="small">Episodios</Link>
             </Typography>
             <Typography variant="body2" color="text.secondary">
