@@ -6,7 +6,7 @@ import CardActions from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from 'react';
 import ShowInfoEpisode from './ShowInfoEpisodes'
-
+import Locations from './Locations'
 
 import {
   Route,
@@ -29,7 +29,7 @@ export const Character = ({ characters = [] }) => {
       .then(data => data)
   }
 
-  
+  //Function Declarations
 
 
   console.log('Characters', characters)
@@ -46,7 +46,7 @@ export const Character = ({ characters = [] }) => {
                 title={elem.name}
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" style={{color:"blue"}}>
                   {elem.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -56,8 +56,9 @@ export const Character = ({ characters = [] }) => {
                   <br></br>
                   episodios: {elem.episode.length}
                   <br></br>
-                  Location {elem.location.name}
                 </Typography>
+                <Locations locationInfo={elem.location.url}/>
+
               </CardContent>
               <CardActions>
               </CardActions>

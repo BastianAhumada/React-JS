@@ -1,21 +1,41 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Locations from '../Services/getLocations'
-import ListLocations from '../Pages/ListLocation'
 
-export default function Location() {
+export default function Location({ locationInfo }) {
+
   const [locations, setLocations] = useState([])
 
 
-  useEffect( () => {
-    const Res = Locations()
-    .then(e => setLocations(e) )
-  }, [])
+  useEffect(() => {
+    const data = fetch(locationInfo)
+      .then(e => e.json())
+      .then(data => setLocations(data))
+  }, [locationInfo])
 
 
-  return (
-    <div>
-      <h1>Ubicaciones</h1>
-      <ListLocations locations={locations} ></ListLocations>
-    </div>
-  )
+  for (const key in locations) {
+    return (
+      <div className='m-3'>
+        <hr></hr>
+        <h4 style={{ color: "red" }}> Type: {locations.type}</h4>
+        <h4 style={{ color: "red" }}> Ubicacion: {locations.name}</h4>
+        <h4 style={{ color: "red" }}> Dimension: {
+          locations.dimension === "unknown" ? (
+            "Desconocido"
+          ) : (
+            locations.dimension
+          )
+        }</h4>
+        <hr></hr>
+      </div>
+
+    )
+  }
+
+  // return (
+  //   <div className='mt-4'>
+  //     {/* <h4> Ubicación: {data.name}</h4>
+  //     <h4> Tipo: {data.type}</h4>
+  //     <h4> Dimensión: {data.dimension}</h4> */}
+  //   </div>
+  // )
 }
