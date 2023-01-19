@@ -3,7 +3,7 @@ import { Episodes } from './Components/Episodes'
 import { ListCharacter } from './Pages/ListCharacters'
 import Location from './Components/Locations'
 import Home from './Components/Home'
-import EpisodesByCharacter from './Components/EpisodesByCharacter'
+import EpisodesByCharacter from './Pages/EpisodesByCharacter'
 import {
   Route,
   Routes,
@@ -16,8 +16,8 @@ function App() {
       <Route path="/episodes" element={<Episodes />} />
       <Route path="/characters" element={<ListCharacter />} />
       <Route path="/locations" element={<Location />} />
-      <Route path="/EpisodesByCharacter" element={<EpisodesByCharacter   /> } />
-
+      {/* <Route path="/EpisodesByCharacter" element={<EpisodesByCharacter   /> } /> */}
+      <Route path="/Locations/:id" element={<EpisodesByCharacter/>} exact/>
     </Routes>
 
   )
